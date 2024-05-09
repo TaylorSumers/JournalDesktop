@@ -1,0 +1,91 @@
+﻿<Window x:Class="JournalDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JournalDesktop"
+        mc:Ignorable="d"
+        xmlns:views="clr-namespace:JournalDesktop.Pages"
+        xmlns:vms="clr-namespace:JournalDesktop.ViewModels"
+        Title="Электронный журнал УЭТК" Height="900" Width="1600" Icon="\Resources\logo.png">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:LoginViewModel}">
+                <views:LoginPage/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:ProfileViewModel}">
+                <views:ProfilePage/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vms:JournalViewModel}">
+                <views:JournalPage/>
+            </DataTemplate> 
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Canvas>
+            <Canvas.Background>
+                <LinearGradientBrush StartPoint="0, 0" EndPoint="1,0">
+                    <GradientStop Color="#FF0975BD" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Canvas.Background>
+            <Border Style="{StaticResource CustomBorder}" Height="60" Width="350" Canvas.Top="45" Canvas.Left="50">
+                <Canvas>
+                    <TextBlock Text="Электронный журнал УЭТК" FontSize="17" Canvas.Top="21" Canvas.Left="47">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+                                <Setter Property="Visibility" Value="Hidden"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CurrentTeacher}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding CurrentTeacher}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Hidden"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="35"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="110"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.RowSpan="2" Height="55" Width="55" Command="{Binding GotoProfileCommand}">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Border CornerRadius="40">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding CurrentTeacher.Photo}"/>
+                                        </Border.Background>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <TextBlock Text="{Binding CurrentTeacher.FullName}" VerticalAlignment="Center" Margin="10 0 0 0" FontSize="20" Grid.Column="1"/>
+                        <TextBlock Text="Преподаватель" VerticalAlignment="Center" Grid.Row="1" FontSize="13" Margin="10 0 0 0" Grid.Column="1"/>
+
+                        <Button Style="{StaticResource CustomButton}" Grid.Column="2" Grid.RowSpan="2" Height="30" Width="80" 
+                            Content="Выйти" Command="{Binding LogoutCommand}"/>
+                    </Grid>
+                </Canvas>
+            </Border>
+            <Image Source="/Resources/logo.png" Height="150" Canvas.Right="20"/>
+        </Canvas>
+        <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}"/>
+    </Grid>
+</Window>

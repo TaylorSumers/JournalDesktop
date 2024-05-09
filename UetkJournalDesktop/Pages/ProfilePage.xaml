@@ -1,0 +1,36 @@
+﻿<Page x:Class="JournalDesktop.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:JournalDesktop"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="1280"
+      Title="ProfilePage">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Назад" Grid.Column="2" Style="{StaticResource CustomButton}" Height="40" Width="150" Name="btnGoBack" Click="btnGoBack_Click"/>
+        <Image Source="{Binding Photo}" Grid.RowSpan="3" Height="250"/>
+        <TextBlock Text="{Binding FullName2}" Grid.Column="1" FontSize="33" VerticalAlignment="Center"/>
+        <TextBlock Text="Преподаватель" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="25"/>
+        <TextBlock Text="{Binding SubjectsString, StringFormat={}Преподаваемые дисциплины: {0}}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
+        <local:CustomTextBox Placeholder="Телефон" Text="{Binding Phone}" Grid.Row="3" Grid.Column="1" Height="50" Width="400" HorizontalAlignment="Left"/>
+        <local:CustomTextBox Placeholder="Email" Text="{Binding Email}" Grid.Row="4" Grid.Column="1" Height="50" Width="400" HorizontalAlignment="Left"/>
+        <Button Content="Сохранить" Style="{StaticResource CustomButton}" Height="40" Width="150" Grid.Row="5" Grid.Column="1"
+                VerticalAlignment="Center" HorizontalAlignment="Left"/>
+    </Grid>
+</Page>
