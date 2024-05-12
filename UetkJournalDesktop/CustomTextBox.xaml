@@ -14,7 +14,7 @@
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding Text, ElementName=TextBox}" Value="">
+                            <DataTrigger Binding="{Binding Text, ElementName=textBox}" Value="">
                                 <Setter Property="Visibility" Value="Visible"/>
                             </DataTrigger>
                         </Style.Triggers>
@@ -23,7 +23,8 @@
                 </TextBlock.Style>
             </TextBlock>
             <TextBox Margin="1" BorderThickness="0" FontSize="15" Background="Transparent"
-                     VerticalContentAlignment="Center" Padding="5" Name="TextBox" Text="{Binding Text}"/>
+                     VerticalContentAlignment="Center" Padding="5" 
+                      Name="textBox" Text="{Binding TextProp}"/>
         </Grid>
     </Border>
 </UserControl>

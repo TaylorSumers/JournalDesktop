@@ -23,9 +23,9 @@ namespace JournalDesktop
         public string Placeholder { get; set; }
 
         public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(CustomTextBox));
+            DependencyProperty.Register(nameof(TextProp), typeof(string), typeof(CustomTextBox));
 
-        public string Text
+        public string TextProp
         {
             get { return (string)GetValue(TextProperty); }
             set { SetValue(TextProperty, value); }

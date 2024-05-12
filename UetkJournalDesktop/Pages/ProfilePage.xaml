@@ -28,8 +28,8 @@
         <TextBlock Text="{Binding FullName2}" Grid.Column="1" FontSize="33" VerticalAlignment="Center"/>
         <TextBlock Text="Преподаватель" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" FontSize="25"/>
         <TextBlock Text="{Binding SubjectsString, StringFormat={}Преподаваемые дисциплины: {0}}" TextWrapping="Wrap" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" FontSize="20"/>
-        <local:CustomTextBox Placeholder="Телефон" Text="{Binding Phone}" Grid.Row="3" Grid.Column="1" Height="50" Width="400" HorizontalAlignment="Left"/>
-        <local:CustomTextBox Placeholder="Email" Text="{Binding Email}" Grid.Row="4" Grid.Column="1" Height="50" Width="400" HorizontalAlignment="Left"/>
+        <local:CustomTextBox Placeholder="Телефон" TextProp="{Binding Phone}" Grid.Row="3" Grid.Column="1" Height="50" Width="400" HorizontalAlignment="Left"/>
+        <local:CustomTextBox Placeholder="Email" TextProp="{Binding Email}" Grid.Row="4" Grid.Column="1" Height="50" Width="400" HorizontalAlignment="Left"/>
         <Button Content="Сохранить" Style="{StaticResource CustomButton}" Height="40" Width="150" Grid.Row="5" Grid.Column="1"
                 VerticalAlignment="Center" HorizontalAlignment="Left"/>
     </Grid>

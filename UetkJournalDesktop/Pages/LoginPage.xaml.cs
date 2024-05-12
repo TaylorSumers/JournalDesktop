@@ -24,40 +24,9 @@ namespace JournalDesktop.Pages
     /// </summary>
     public partial class LoginPage : UserControl
     {
-
         public LoginPage()
         {
             InitializeComponent();
         }
-
-        //IMediator _mediator;
-
-        //public LoginPage(IMediator mediator)
-        //{
-        //    InitializeComponent();
-        //    _mediator = mediator;
-        //}
-
-        //private async void btnEnter_Click(object sender, RoutedEventArgs e)
-        //{
-        //    var login = tbxLogin.Text;
-        //    var password = pbxPassword.Password; // unsafe
-        //    var query = new GetTeacherQuery()
-        //    {
-        //        Login = login,
-        //        Password = password
-        //    };
-
-        //    try
-        //    {
-        //        var teacher = await _mediator.Send(query);
-        //        //MainWindow.Teacher = teacher;
-        //        NavigationService.Navigate(new JournalPage());
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Неверные данные", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-        //    }
-        //}
     }
 }

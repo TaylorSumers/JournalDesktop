@@ -26,7 +26,6 @@ namespace JournalDesktop.Commands
 
         public override void Execute(object? parameter)
         {
-            // Логика выхода
             _navigationStore.CurrentViewModel = new LoginViewModel(_mediator, _navigationStore, _teacherStore);
             _teacherStore.CurrentTeacher = null;
         }

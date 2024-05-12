@@ -21,10 +21,7 @@ using JournalDesktop.Models;
 
 namespace JournalDesktop.Pages
 {
-    /// <summary>
-    /// Interaction logic for JournalPage.xaml
-    /// </summary>
-    public partial class JournalPage : UserControl // Page
+    public partial class JournalPage : UserControl
     {
         private List<Mark> _marks;
         private Dictionary<Guid, int> _markValues = new Dictionary<Guid, int>();
@@ -33,26 +30,26 @@ namespace JournalDesktop.Pages
         {
             InitializeComponent();
 
-            //var client = new HttpClient();
-            //var response = client.GetAsync("https://localhost:7043/api/Groups/GetAll?teacherId=7a728bcd-1872-48d0-be66-765952dbcd67").Result.Content.ReadAsStringAsync().Result;
-            //var json = JObject.Parse(response);
-            //var teacherGroups = JsonConvert.DeserializeObject<List<TeacherGroup>>(json["teacherGroups"].ToString());
-            //cbxGroup.ItemsSource = teacherGroups.Select(x => x.Group).ToList();
-            //cbxSubject.ItemsSource = teacherGroups.Select(x => x.Subject).ToList();
+            var client = new HttpClient();
+            var response = client.GetAsync("https://localhost:7043/api/Groups/GetAll?teacherId=7a728bcd-1872-48d0-be66-765952dbcd67").Result.Content.ReadAsStringAsync().Result;
+            var json = JObject.Parse(response);
+            var teacherGroups = JsonConvert.DeserializeObject<List<TeacherGroup>>(json["teacherGroups"].ToString());
+            cbxGroup.ItemsSource = teacherGroups.Select(x => x.Group).ToList();
+            cbxSubject.ItemsSource = teacherGroups.Select(x => x.Subject).ToList();
 
-            //response = client.GetAsync("https://localhost:7043/api/Marks/GetAll").Result.Content.ReadAsStringAsync().Result;
-            //json = JObject.Parse(response);
-            //_marks = JsonConvert.DeserializeObject<List<Mark>>(json["marks"].ToString());
+            response = client.GetAsync("https://localhost:7043/api/Marks/GetAll").Result.Content.ReadAsStringAsync().Result;
+            json = JObject.Parse(response);
+            _marks = JsonConvert.DeserializeObject<List<Mark>>(json["marks"].ToString());
 
-            //foreach(var mark in _marks)
-            //{
-            //    if(int.TryParse(mark.ShortName, out int value))
-            //    {
-            //        _markValues.Add(mark.Id, value);
-            //    }
-            //}
+            foreach (var mark in _marks)
+            {
+                if (int.TryParse(mark.ShortName, out int value))
+                {
+                    _markValues.Add(mark.Id, value);
+                }
+            }
 
-            //GenerateJournalTable();
+            GenerateJournalTable();
         }
 
         private void GenerateJournalTable()

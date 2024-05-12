@@ -16,7 +16,7 @@ namespace JournalDesktop.ViewModels
     {
         public LoginViewModel(IMediator mediator, NavigationStore navigationStore, TeacherStore teacherStore) : base(mediator)
         {
-            LoginCommand = new LoginCommand(mediator, navigationStore, teacherStore);
+            LoginCommand = new LoginCommand(mediator, navigationStore, teacherStore, this);
         }
 
         private string _login;

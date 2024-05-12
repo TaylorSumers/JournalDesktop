@@ -17,10 +17,10 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <TextBlock Text="Вход" FontSize="50" VerticalAlignment="Center" Margin="20 0 0 0"/>
-                <local:CustomTextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" 
-                                     x:Name="tbxLogin" Grid.Row="1" Placeholder="Логин" Height="50" Width="360"/>
-                <local:CustomPasswordBox Password="{Binding Password, UpdateSourceTrigger=PropertyChanged}" 
-                                         x:Name="pbxPassword" Grid.Row="2" Height="50" Width="360"/>
+                <!-- <local:CustomTextBox -->
+                <TextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Height="50" Width="360"/>
+                <!-- <local:CustomPasswordBox Password="{Binding Password}" -->
+                <TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Height="50" Width="360"/> 
                 <Button Name="btnEnter" Content="Войти" Grid.Row="3" Height="50" Width="360"
                         Style="{StaticResource CustomButton}" FontSize="20"
                         Command="{Binding LoginCommand}"/>

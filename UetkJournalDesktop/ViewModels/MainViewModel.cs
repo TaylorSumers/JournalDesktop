@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using JournalDesktop.Commands;
 using JournalDesktop.Stores;
-using JournalDesktop.Models;
+using JournalDesktop.Domain;
 
 namespace JournalDesktop.ViewModels
 {
