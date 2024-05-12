@@ -31,9 +31,9 @@
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </Canvas.Background>
-            <Border Style="{StaticResource CustomBorder}" Height="60" Width="350" Canvas.Top="45" Canvas.Left="50">
+            <Border Style="{StaticResource CustomBorder}" Height="60" Width="440" Canvas.Top="45" Canvas.Left="50">
                 <Canvas>
-                    <TextBlock Text="Электронный журнал УЭТК" FontSize="17" Canvas.Top="21" Canvas.Left="47">
+                    <TextBlock Text="Электронный журнал УЭТК" FontSize="19" Canvas.Top="20" Canvas.Left="70">
                         <TextBlock.Style>
                             <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
                                 <Setter Property="Visibility" Value="Hidden"/>
@@ -62,7 +62,7 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="70"/>
-                            <ColumnDefinition Width="170"/>
+                            <ColumnDefinition Width="260"/>
                             <ColumnDefinition Width="110"/>
                         </Grid.ColumnDefinitions>
                         <Button Grid.RowSpan="2" Height="55" Width="55" Command="{Binding GotoProfileCommand}">
